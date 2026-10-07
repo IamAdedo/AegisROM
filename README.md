@@ -47,11 +47,19 @@ AegisROM/
 2. Every write is followed by a whole-chip verify plus CRC32/SHA256 comparison against the source image.
 3. `verify_voltage()` warns when a 1.8 V part is driven at 3.3 V (CH341A and similar).
 
-## Build
+## Build (Windows / macOS / Linux)
 
-Prerequisites: CMake ≥ 3.21, a C++20 compiler (Clang/LLVM or MSVC), Qt6
-(Widgets, Svg, Xml) for the GUI, Meson-built `libflashrom` for real hardware.
-`libpci` is Linux-only and is never required on Windows.
+AegisROM is universal — one tree, three platforms:
+
+| Platform | Toolchain | Deps | Guide |
+|----------|-----------|------|-------|
+| Windows  | MSVC 2019+ or Clang (Chocolatey `llvm`) | vcpkg: `qtbase libusb libftdi` | `docs/BUILD_WINDOWS.md` |
+| macOS (arm64 + x64) | Apple Clang | Homebrew: `qt@6 libusb libftdi` | `docs/BUILD_MACOS.md` |
+| Linux | GCC / Clang | distro: `qt6-base-dev libusb-1.0-0-dev libftdi1-dev libpci-dev` | `docs/BUILD_LINUX.md` |
+
+`libpci` is Linux-only and is never required on Windows/macOS (only the
+`internal` chipset programmer needs it; USB programmers use
+`libusb`/`libftdi` everywhere).
 
 ```powershell
 # Windows (details in docs/BUILD_WINDOWS.md)
@@ -61,8 +69,15 @@ cmake --build build --config Release
 ```
 
 ```bash
-# Linux
-cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+# macOS (details in docs/BUILD_MACOS.md)
+cmake -S . -B build -G Ninja \
+  -DCMAKE_PREFIX_PATH="$(brew --prefix qt@6)" -DCMAKE_BUILD_TYPE=Release
+cmake --build build
+```
+
+```bash
+# Linux (details in docs/BUILD_LINUX.md)
+cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
 cmake --build build -j"$(nproc)"
 ctest --test-dir build
 ```
