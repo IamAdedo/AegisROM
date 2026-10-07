@@ -1,0 +1,7 @@
+# Normalize line endings across Windows / Linux checkouts.
+* text=auto eol=lf
+*.sln text eol=crlf
+*.vcxproj text eol=crlf
+*.ico binary
+*.png binary
+*.icns binary

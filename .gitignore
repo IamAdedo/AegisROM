@@ -1,0 +1,65 @@
+# Build trees
+build/
+out/
+install/
+_build/
+cmake-build-*/
+
+# CMake artefacts
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+CTestTestfile.cmake
+DartConfiguration.tcl
+Makefile
+*.ninja
+*.ninja_deps
+*.ninja_log
+compile_commands.json
+
+# Compiled objects / libs / exes
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.so.*
+*.dylib
+*.dll
+*.exe
+*.pdb
+*.ilk
+*.exp
+moc_*.cpp
+ui_*.h
+qrc_*.cpp
+*.moc
+
+# Qt Creator / Visual Studio / VS Code
+*.user
+*.user.*
+.vs/
+.vscode/
+*.VC.db
+*.VC.VC.opendb
+*.sln
+*.vcxproj
+*.filters
+*.suo
+*.aps
+ipch/
+*.sdf
+
+# Dependency managers (live outside the repo)
+/vcpkg_installed/
+
+# Flash dumps & backups produced during testing
+*.bin
+*.rom
+*.bak
+backups/
+
+# OS noise
+.DS_Store
+Thumbs.db
+desktop.ini
