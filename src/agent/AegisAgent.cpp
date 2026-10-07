@@ -167,7 +167,7 @@ bool AegisAgent::executeFlashSequence(const AgentConfig& config,
 
 bool AegisAgent::runAutoFlash(const AgentConfig& config) {
   log("auto-flash start target_type='" + config.targetType + "'");
-  probeHardware();
+  (void)probeHardware();  // ranked list logged internally; result unused here
   if (!ensureOpen(config)) return false;
 
   auto header = readChipHeader();

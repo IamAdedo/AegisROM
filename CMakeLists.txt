@@ -1,6 +1,6 @@
 # AegisROM — unified hybrid AI flashing suite (flashrom + FlashromGUI + IMSProg)
 # Root build tree. Builds aegisrom-cli (no Qt) and aegisrom (Qt6 GUI) from one tree.
-cmake_minimum_required(VERSION 3.21)
+cmake_minimum_required(VERSION 3.20)
 
 project(AegisROM
   VERSION 0.1.0
