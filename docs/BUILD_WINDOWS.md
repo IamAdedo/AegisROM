@@ -66,14 +66,14 @@ cmake --build build --config Release
 .\build\Release\aegisrom-cli.exe --help
 ```
 
-## Path summary (fill in after step 2–4)
+## Path summary (confirmed 2026-10-07)
 
-| Tool         | Expected location                                              |
-|--------------|----------------------------------------------------------------|
-| `cmake`      | `C:\Program Files\CMake\bin\cmake.exe`                         |
-| `clang`      | `C:\Program Files\LLVM\bin\clang.exe`                          |
-| vcpkg        | `C:\vcpkg\vcpkg.exe`                                           |
-| vcpkg toolchain | `C:/vcpkg/scripts/buildsystems/vcpkg.cmake`                 |
+| Tool         | Location                                                       | Version |
+|--------------|----------------------------------------------------------------|---------|
+| `cmake`      | `C:\Program Files\CMake\bin\cmake.exe` (Chocolatey)            | 4.4.4   |
+| `clang`      | `C:\Program Files\LLVM\bin\clang.exe` (Chocolatey `llvm`)      | 22.1.8  |
+| vcpkg        | `C:\vcpkg\vcpkg.exe`                                           | —       |
+| vcpkg toolchain | `C:/vcpkg/scripts/buildsystems/vcpkg.cmake`                 | —       |
 
 Without `libflashrom` built yet, configure still succeeds in mock-HAL mode;
 see the root `CMakeLists.txt` and `README.md`.
